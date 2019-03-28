@@ -1,0 +1,204 @@
+<cpn-baniere-accueil></cpn-baniere-accueil>
+
+<div class="container special">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-lg-9">
+        <h1 class="titre-principal">Nos abonnés spéciaux</h1>
+        <div id="demo" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner no-padding my-0" style="width:100%;" style="padding:0;">
+          <div class="carousel-item" [ngClass]="{'active': i===0}" *ngFor="let ligne of abonnes;index as i">
+            <div class="row special-row">
+              <div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 abs-item" *ngFor="let abs of ligne; index as j">
+                <cpn-single-abonne-special
+                  [image]="'/assets/img/avatar'+j+'.png'"
+                  [nom]="abs?.membre?.nomComplet"
+                  [likes]="abs?.loveIt"
+                  [vues]="abs?.nombreVue"
+                  [fonction]="abs?.cvPersonne?.specialite"
+                  [experience]="abs?.cvPersonne?.anneExperience"
+                  [_id]="abs?.id"
+                  (viewProfile)="handleProfile($event)">
+                </cpn-single-abonne-special>
+              </div>
+            </div>
+          </div>
+
+            <div class="carousel-item" [ngClass]="{'active': true}" *ngIf="__abonnes?.length > 0">
+              <div class="row special-row">
+                <div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 abs-item" *ngFor="let abs of __abonnes; index as j">
+                  <cpn-single-abonne-special
+                    [ghost]="true">
+                  </cpn-single-abonne-special>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a class="carousel-control-prev prev-car" href="#demo" role="button" data-slide="prev">
+            <button mat-mini-fab style="background:#ddd;"  class="fa fa-chevron-left sp"></button>
+          </a>
+          <a class="carousel-control-next next-car" href="#demo" role="button" data-slide="next">
+
+            <button mat-mini-fab style="background:#ddd;"  class="fa fa-chevron-right sp"></button>
+          </a>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <h1 class="titre-principal">Booster votre profil</h1>
+      <cpn-booster-profil
+        [image]="'http://www.webcoderskull.com/img/team4.png'"
+        [lien]="''"
+        [nom]="abonneSpecial.nom"
+        [fonction]="abonneSpecial?.cvPersonne?.specialite"
+        [experience]="abonneSpecial?.cvPersonne?.anneExperience"
+        [facebook]="''"
+        [twitter]="''"
+        [linkedin]="''"></cpn-booster-profil>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-7 col-md-12">
+      <h1 class="titre-principal">Nos Espaces</h1>
+      <div *ngIf="espaces?.length > 0" class="row row-espace">
+        <div class="col-md-4 col-sm-6" *ngFor="let espace of espaces">
+          <app-single-espace
+            [image]="'../../../assets/images/Magasins-pilles-police-visee-Les-images-de-l-acte-18-des-Gilets-jaunes-a-Paris.jpg'"
+            [titre]="espace.libelle"
+            [_id]="espace?.id"
+            [type]="espace?.typeEspace"
+            (onSabonner)="handleOnSabonner($event)"
+            (onVoirAbonnes)="handleVoirAbonnes($event)"
+          ></app-single-espace>
+        </div>
+      </div>
+      <div *ngIf="!(espaces?.length > 0)" class="row row-espace">
+        <div class="col-md-4 col-sm-6" *ngFor="let item of [0,1,2]">
+          <app-single-espace [ghost]="true"></app-single-espace>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <h1 class="titre-principal">pubs</h1>
+      <cpn-pub-zone
+        [image]="'../../../assets/images/Magasins-pilles-police-visee-Les-images-de-l-acte-18-des-Gilets-jaunes-a-Paris.jpg'"
+        [lien]="''"
+        [hauteur]="'220px'"></cpn-pub-zone>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="titre-principal">Elles recrutent</h1>
+      <div class="row">
+        <div class="col-lg-2 col-12 col-md-3 col-sm-4" *ngFor="let i of [0,1,2,3,4,5]">
+          <cpn-single-partenaire
+            [image]="'/assets/login_bg.jpg'"
+            [lien]="''"></cpn-single-partenaire>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="titre-principal">Pubs</h1>
+      <cpn-pub-zone
+        [image]="'../../../assets/images/Magasins-pilles-police-visee-Les-images-de-l-acte-18-des-Gilets-jaunes-a-Paris.jpg'"
+        [lien]="''"
+        [hauteur]="'200px'"></cpn-pub-zone>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <h1 class="titre-principal">Nos 5 derniers inscrits</h1>
+      <div class="row">
+        <div class="col-md-3" *ngFor="let abonne of membres" >
+          <cpn-single-last-inscrit
+            [nom]="abonne?.membre?.nomComplet"
+            [fonction]="abonne?.cvPersonne?.specialite"
+            [_id]="abonne?.id"></cpn-single-last-inscrit>
+        </div>
+        <div class="col-md-3" *ngFor="let abonne of __membres" >
+          <cpn-single-last-inscrit
+            [ghost]="true"></cpn-single-last-inscrit>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <h1 class="titre-principal">Booster votre profil</h1>
+      <cpn-booster-profil
+        [image]="'http://www.webcoderskull.com/img/team4.png'"
+        [lien]="''"
+        [nom]="abonneSpecial.nom"
+        [fonction]="abonneSpecial?.cvPersonne?.specialite"
+        [experience]="abonneSpecial?.cvPersonne?.anneExperience"
+        [facebook]="''"
+        [twitter]="''"
+        [linkedin]="''"></cpn-booster-profil>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="titre-principal">Pubs</h1>
+      <cpn-pub-zone
+        [image]="'../../../assets/images/Magasins-pilles-police-visee-Les-images-de-l-acte-18-des-Gilets-jaunes-a-Paris.jpg'"
+        [lien]="''"
+        [hauteur]="'200px'"></cpn-pub-zone>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <h1 class="titre-principal">Nos services aux entreprises</h1>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let item of services_entreprises">
+          <cpn-single-service-entreprise
+            [titre]="'Création de site internet'"
+            [description]="'lorem ipsum dolore de boenos dias a paria nikolo eza manager premier
+            lorem ipsum dolore de boenos dias a paria nikolo eza manager premier
+            lorem ipsum dolore de boenos dias a paria nikolo eza manager premier
+            lorem ipsum dolore de boenos dias a paria nikolo eza manager premier'">
+          </cpn-single-service-entreprise>
+        </div>
+        <div class="col-md-4" *ngFor="let item of __services_entreprises">
+          <cpn-single-service-entreprise
+            [ghost]="true">
+          </cpn-single-service-entreprise>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <h1 class="titre-principal">Pubs</h1>
+      <cpn-pub-zone
+        [image]="'../../../assets/images/Magasins-pilles-police-visee-Les-images-de-l-acte-18-des-Gilets-jaunes-a-Paris.jpg'"
+        [lien]="''"
+        [hauteur]="'300px'"></cpn-pub-zone>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="titre-principal">Pubs</h1>
+      <cpn-pub-zone
+        [image]="'../../../assets/images/Magasins-pilles-police-visee-Les-images-de-l-acte-18-des-Gilets-jaunes-a-Paris.jpg'"
+        [lien]="''"
+        [hauteur]="'200px'"></cpn-pub-zone>
+    </div>
+  </div>
+</div>
+

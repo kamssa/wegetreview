@@ -1,0 +1,23 @@
+<div class="partenaire-container" *ngIf="!ghost">
+  <a [href]="lien" target="_blank">
+    <div class="partenaire-image"
+      [style.background-image]="'url('+image+')'"
+      [style.background-size]="'cover'"
+      [style.background-position]="'center'">
+      <div class="partenaire-hover">
+        <i class="fa fa-link"></i>
+      </div>
+    </div>
+  </a>
+</div>
+
+<div class="partenaire-container" *ngIf="ghost">
+  <div class="partenaire-image"
+       [style.background-image]="'url('+_image+')'"
+       [style.background-size]="'cover'"
+       [style.background-position]="'center'">
+    <div class="partenaire-hover">
+      <i class="fa fa-link"></i>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,126 @@
+<!--
+<div class="container">
+    <div class="row" *ngIf="isValid; else notFound">
+      <div class="col-md-12 col-lg-12 col-12">
+        <div id="profile-abonne" style="min-height: 200px;">
+            <br>
+            &lt;!&ndash; <app-profil-cover [titre]="titre" id="img_cover" [vues]="vues" [multiple_interval]="5000" [multiple]="photoCouvertureArr" [image]="photo" (clickOcur)="handleClick($event)" >
+              <app-profil-avatar  id="img_profil" [image]="image" (clickOcur)="handleClick($event)" ></app-profil-avatar>
+              <div class="footer">
+                <button mat-raised-button color="primary" (click)="onContactAbonne()"><i class="fa fa-envelope"></i><span class="d-none d-sm-inline" style="display: none" i18n> Contacter</span></button>&nbsp;&nbsp;
+                <button mat-raised-button color="warn" (click)="activatchat()">
+                  <i class="fa fa-comments"></i>
+                  <span class="d-none d-sm-inline" i18n> Discuter</span>
+                </button>
+              </div>
+            </app-profil-cover> &ndash;&gt;
+            <br>
+          &lt;!&ndash; Contenu de la page du profile &ndash;&gt;
+          <div class="profile-content" style="min-height: 500px;">
+            <div class="row">
+              <div class="col-lg-9 col-md-12 col-12 col-sm-12">
+                <mat-card class="abonne-info">
+                  <div class="abonne-meta-info">
+                    <div class="abonne-name">
+                      {{abonne.nom |uppercase}}
+                    </div>
+                    <div class="abonne-meta" i18n>
+                      {{abonne?.specialite}} {{abonne?.anneeExp}} ans d'espériences
+                    </div>
+                  </div>
+                  <div class="abonne-contact-num">
+                    <button mat-raised-button color="warn" (click)="onGetNumAbonne()">
+                      <i class="fa fa-phone"></i>
+                      <span class="d-none d-sm-inline" i18n> Coordonnées</span>
+                    </button>
+                  </div>
+                </mat-card>
+                <mat-card>
+                  &lt;!&ndash; Tab group competence &ndash;&gt;
+                  <mat-tab-group class="col-md-12 col-sm-12">
+                    <mat-tab>
+                      <span *mat-tab-label>
+                        <i class="fa fa-address-card"></i>
+                        <span class="d-none d-lg-inline" i18n> Bio</span>
+                      </span>
+                      <div class="tab-content">
+                        <h3 class="tab-content-title" i18n>Biographie</h3>
+                        &lt;!&ndash; <app-bio-profil [abonne]="abonnement" [cvPersonne]="cvPersonne"></app-bio-profil> &ndash;&gt;
+                      </div>
+                    </mat-tab>
+                    <mat-tab>
+                      <span *mat-tab-label>
+                        <i class="fa fa-trophy"></i>
+                        <span class="d-none d-lg-inline" i18n> Expérience</span>
+                      </span>
+                      <div class="tab-content">
+                        <h3 class="tab-content-title" i18n>expérince</h3>
+                        &lt;!&ndash; <app-experience-profil [experience]="experience"></app-experience-profil> &ndash;&gt;
+                      </div>
+                    </mat-tab>
+                    <mat-tab>
+                      <span *mat-tab-label>
+                        <i class="fa fa-graduation-cap"></i>
+                        <span class="d-none d-lg-inline" i18n> Formation</span>
+                      </span>
+                      <div class="tab-content">
+                        <h3 class="tab-content-title" i18n>Formations</h3>
+                        <ul style="margin-left: -35px;">
+                          &lt;!&ndash; <app-formation-profil [cursus]="cursus"></app-formation-profil> &ndash;&gt;
+                        </ul>
+                      </div>
+                    </mat-tab>
+                    <mat-tab>
+                      <span *mat-tab-label>
+                        <i class="fa fa-file"></i>
+                        <span class="d-none d-lg-inline" i18n> Documents</span>
+                      </span>
+                      <div class="tab-content">
+                        <h3 class="tab-content-title" i18n>documents</h3>
+                        &lt;!&ndash; <app-documents-profil *ngFor="let docs of documents" [docs]="docs"></app-documents-profil> &ndash;&gt;
+                      </div>
+                    </mat-tab>
+                    <mat-tab>
+                      <span *mat-tab-label>
+                        <i class="fa fa-image"></i>
+                        <span class="d-none d-lg-inline" i18n> Photos</span>
+                      </span>
+                      <div class="tab-content">
+                        <h3 class="tab-content-title" i18n>Photos</h3>
+                        &lt;!&ndash; <app-t-carousel [margin]="4"  height="200px" [auto]="true" [datas]="(dataImage$ | async)"></app-t-carousel> &ndash;&gt;
+                      </div>
+                    </mat-tab>
+                    <mat-tab>
+                      <span *mat-tab-label>
+                        <i class="fa fa-video-camera"></i>
+                        <span class="d-none d-lg-inline" i18n> Vidéos </span>
+                      </span>
+                      <div class="tab-content">
+                        <h3 class="tab-content-title" i18n>Vidéos</h3>
+                        &lt;!&ndash; <app-t-carousel [margin]="4"  height="300px" [auto]="false" type_link="video" [datas]="(dataVideo$ | async)"></app-t-carousel> &ndash;&gt;
+                      </div>
+                    </mat-tab>
+                  </mat-tab-group>
+                </mat-card>
+                <br>
+              </div>
+              <div class="d-none d-lg-block col-lg-3" >
+                <div class="col-md-3">
+                  <div class="rightcolumn" style="margin-top:10%;">
+                    &lt;!&ndash; <app-pub-profil></app-pub-profil> &ndash;&gt;
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #notFound>
+      &lt;!&ndash; <app-not-found></app-not-found> &ndash;&gt;
+    </ng-template>
+  </div>
+
+
+-->

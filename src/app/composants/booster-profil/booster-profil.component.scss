@@ -1,0 +1,66 @@
+/*
+	Boost de profile
+*/
+.cnt-block:hover {
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+  border: 0;
+}
+.cnt-block{
+  float:left;
+  width:100%;
+  background:#fff;
+  padding:30px 20px;
+  text-align:center;
+  border:2px solid #d5d5d5;
+  margin: 5px 0px;
+}
+.cnt-block figure{
+  width:88px;
+  height:88px;
+  border-radius:100%;
+  display:inline-block;
+  margin-bottom: 15px;
+}
+.cnt-block img{
+  width:88px;
+  height:88px;
+  border-radius:100%;
+}
+.cnt-block h3{
+  color:#2a2a2a;
+  font-size:20px;
+  font-weight:500;
+  padding:6px 0;
+  text-transform:uppercase;
+}
+.cnt-block h3 a{
+  text-decoration:none;
+  color:#2a2a2a;
+}
+.cnt-block h3 a:hover{
+  color:#337ab7;
+}
+.cnt-block p{
+  color:#2a2a2a;
+  font-size:13px;
+  line-height:20px;
+  font-weight:400;
+}
+.cnt-block .follow-us{
+  margin:20px 0 0 0;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+.cnt-block .follow-us li{
+  display:inline-block;
+  width:auto;
+  margin:0 5px;
+}
+.cnt-block .follow-us li .fa{
+  font-size:24px;
+  color:#767676;
+}
+.cnt-block .follow-us li .fa:hover{
+  color:#025a8e;
+}

@@ -1,0 +1,35 @@
+<div class="cnt-block equal-hight" style="height: 300px;" *ngIf="!ghost">
+  <figure><img [src]="image" class="img-responsive" alt=""></figure>
+  <h3><a [routerLink]="lien">{{nom}}</a></h3>
+  <p>{{fonction}}</p>
+  <p>{{experience}} année(s) d'expérience</p>
+  <ul class="follow-us clearfix">
+    <li><a href="{{facebook}}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+    <li><a href="{{twitter}}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+    <li><a href="{{linkedin}}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+  </ul>
+</div>
+
+<div class="cnt-block equal-hight" style="height: 300px;" *ngIf="ghost">
+  <figure><img [src]="_image" class="img-responsive" alt=""></figure>
+  <h3><a [routerLink]="lien">
+    <span class="ghost title" [style.width]="'70%'"></span>
+  </a></h3>
+  <p>
+    <span class="ghost title" [style.width]="'40%'"></span>
+  </p>
+  <p>
+    <span class="ghost title" [style.width]="'80%'"></span>
+  </p>
+  <ul class="follow-us clearfix">
+    <li>
+      <span class="ghost round"></span>
+    </li>
+    <li>
+      <span class="ghost round"></span>
+    </li>
+    <li>
+      <span class="ghost round"></span>
+    </li>
+  </ul>
+</div>

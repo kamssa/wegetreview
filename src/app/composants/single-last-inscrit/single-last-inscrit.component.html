@@ -1,0 +1,29 @@
+<div class="inscrit-container" *ngIf="!ghost">
+  <div class="image-container">
+    <div class="image-content" [style.background-image]="'url('+image+')'"
+         [style.background-size]="'cover'"
+         [style.background-position]="'center'"></div>
+  </div>
+  <div class="footer-panel">
+    <div class="nom">{{nom | limitText:20}}</div>
+    <div class="fonction">{{fonction | limitText:20}}</div>
+    <button mat-raised-button [class]="'mat-raised-button bg-primary color-light'">Contacter</button>
+  </div>
+</div>
+
+<div class="inscrit-container ghost" *ngIf="ghost">
+  <div class="image-container">
+    <div class="image-content" [style.background-image]="'url('+_image+')'"
+         [style.background-size]="'cover'"
+         [style.background-position]="'center'"></div>
+  </div>
+  <div class="footer-panel">
+    <div class="nom">
+      <span class="ghost title" [style.width]="'50%'"></span>
+    </div>
+    <div class="fonction">
+      <span class="ghost title" [style.width]="'70%'"></span>
+    </div>
+    <span class="ghost button" [style.width]="'60px'"></span>
+  </div>
+</div>

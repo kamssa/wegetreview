@@ -1,0 +1,86 @@
+<header class="page-header" style="position: relative;margin-top:0px;">
+  <div class="header-content" *ngIf="image_header!==''">
+    <cpn-pub-zone
+      [image]="image_header"
+      [lien]="''"
+      [hauteur]="'250px'">
+    </cpn-pub-zone>
+  </div>
+  <div class="header-content" *ngIf="image_header===''">
+    <cpn-pub-zone
+      [ghost]="true">
+    </cpn-pub-zone>
+  </div>
+</header>
+<div class="page-content">
+  <div class="container" style="padding: 24px 0;">
+    <div class="row">
+      <div class="col-md-12 col-lg-9 col-12">
+        <div class="container-fluid">
+          <div class="panel-search">
+          </div>
+          <div class="row">
+            <div *ngFor="let abonne of abonnes; let i=index" class="col-md-6 col-sm-6 col-12 col-lg-4">
+              <cpn-single-abonne-competent
+                [image]="'/assets/img/avatar'+i+'.png'"
+                [experience]="abonne?.anneeExp"
+                [connected]="abonne?.status"
+                [vues]="abonne?.nbVue"
+                [localite]="abonne?.pays"
+                [nom]="abonne?.nom"
+                [fonction]="abonne?.specialite"
+                [langues]="abonne?.langues"
+                [_id]="abonne?.id"></cpn-single-abonne-competent>
+            </div>
+            <div *ngFor="let abonne of __abonnes; let i=index" class="col-md-6 col-sm-6 col-12 col-lg-4">
+              <cpn-single-abonne-competent
+                [ghost]="true"></cpn-single-abonne-competent>
+            </div>
+            <div class="col-12">
+            </div>
+          </div>
+          <div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+          <div class="rightcolumn" style="margin-top:8%; border:0px;">
+         </div>
+        </div>
+    </div>
+  </div>
+</div>
+ <!--<div class="page-content">
+    <div class="container" style="padding: 24px 0;">
+      <div class="row">
+        <div class="col-md-12 col-lg-9 col-12">
+          <div class="container-fluid">
+            <div class="panel-search">
+              <app-search-abonnes></app-search-abonnes>
+            </div>
+            <div class="row">
+              <div *ngFor="let abonne of abonnes | paginate: { itemsPerPage: 18, currentPage: p }" class="col-md-6 col-sm-6 col-12 col-lg-4">
+              <div *ngFor="let abonne of abonnes" class="col-md-6 col-sm-6 col-12 col-lg-4">
+                <app-single-abonne-competent [abonne]="abonne.abonne" [cvPersonne]="abonne.cvPersonne"></app-single-abonne-competent>
+              </div>
+              <div class="col-12">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </div>
+            </div>
+            <div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="rightcolumn" style="margin-top:8%; border:0px;">
+                <app-pub-profil></app-pub-profil>
+           </div>
+          </div>
+      </div>
+    </div>
+  </div>
+ </div>-->

@@ -1,0 +1,120 @@
+@import '../../../variables';
+
+.conteneur{
+    display: block;
+    position: relative;
+    width: 100%;
+    box-shadow: $shadow_1;
+    margin: 5px 0px;
+    .fond{
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+    .entete{
+        display: block;
+        position: relative;
+        background: transparentize($color-light, .1);
+        font-size: .9rem;
+        .entete1{
+            display: flex;
+            justify-content: space-between;
+            color: $color-primary;
+        }
+        .nom{
+            text-align: center;
+            font-weight: 500;
+            color: transparentize($color-secondary, .1);
+        }
+    }
+    .footer{
+        display: block;
+        position: relative;
+        margin-top: 150px;
+        background: transparentize($color-dark, .1);
+        .footer-content{
+            text-align: center;
+            font-size: .9rem;
+            .fonction{
+                color: $color-light;
+            }
+            .annee_exp{
+                color: transparentize($color-secondary, .1);
+            }
+        }
+        .action{
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+}
+
+.conteneur.ghost{
+  display: block;
+  position: relative;
+  width: 100%;
+  box-shadow: $shadow_1;
+  margin: 5px 0px;
+  .fond{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .entete{
+    display: block;
+    position: relative;
+    background: transparentize($color-light, .1);
+    font-size: .9rem;
+    .entete1{
+      display: flex;
+      justify-content: space-between;
+      color: $color-primary;
+    }
+    .nom{
+      text-align: center;
+      font-weight: 500;
+      color: transparentize($color-secondary, .1);
+    }
+  }
+  .footer{
+    display: block;
+    position: relative;
+    margin-top: 150px;
+    background: transparentize($color-dark, .1);
+    .footer-content{
+      text-align: center;
+      font-size: .9rem;
+      .fonction{
+        color: $color-light;
+      }
+      .annee_exp{
+        color: transparentize($color-secondary, .1);
+      }
+    }
+    .action{
+      display: flex;
+      justify-content: flex-end;
+      .button{
+        height: 40px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $md){
+    .footer{
+        margin-top: 180px !important;
+    }
+}

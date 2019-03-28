@@ -1,0 +1,104 @@
+@mixin background_color_class($suffix, $color){
+    .bg-#{$suffix} {
+        background-color: $color;
+    }
+}
+
+@mixin color_class($suffix, $color){
+    .color-#{$suffix} {
+        color: $color;
+    }
+}
+
+@mixin background_color_active_class($suffix, $color){
+    .bg-#{$suffix}:active {
+        background-color: $color;
+    }
+}
+
+@mixin color_active_class($suffix, $color){
+    .color-#{$suffix}:active {
+        color: $color;
+    }
+}
+
+
+@mixin background_color_hover_class($suffix, $color){
+    .bg-#{$suffix}:hover {
+        background-color: $color;
+    }
+}
+
+@mixin color_hover_class($suffix, $color){
+    .color-#{$suffix}:hover {
+        color: $color;
+    }
+}
+
+
+
+@mixin color_pallete($suffix, $color){
+    @include background_color_class($suffix, $color);
+    @include color_class($suffix, $color);
+}
+
+@mixin color_pallete_active($suffix, $color){
+    @include background_color_active_class($suffix, $color);
+    @include color_active_class($suffix, $color);
+}
+
+@mixin color_pallete_hover($suffix, $color){
+    @include background_color_hover_class($suffix, $color);
+    @include color_hover_class($suffix, $color);
+}
+
+@mixin ghost_animation(){
+  @keyframes ghost_animation{
+    from{
+      left: -100%;
+    }
+    to{
+      left: 100%;
+    }
+  }
+  @-moz-keyframes ghost_animation{
+    from{
+      left: -100%;
+    }
+    to{
+      left: 100%;
+    }
+  }
+  @-ms-keyframes ghost_animation{
+    from{
+      left: -100%;
+    }
+    to{
+      left: 100%;
+    }
+  }
+  @-o-keyframes ghost_animation{
+    from{
+      left: -100%;
+    }
+    to{
+      left: 100%;
+    }
+  }
+  @-khtml-keyframes ghost_animation{
+    from{
+      left: -100%;
+    }
+    to{
+      left: 100%;
+    }
+  }
+  @-webkit-keyframes ghost_animation{
+    from{
+      left: -100%;
+    }
+    to{
+      left: 100%;
+    }
+  }
+}

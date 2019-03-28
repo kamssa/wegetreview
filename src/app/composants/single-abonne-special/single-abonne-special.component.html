@@ -1,0 +1,51 @@
+<div class="conteneur" *ngIf="!ghost">
+  <div class="fond" [style.background-image]="'url('+image+')'" ></div>
+  <div class="entete">
+    <div class="entete1">
+      <div class="like"><i class="fa fa-heart"></i> {{likes}}</div>
+      <div class="see"><i class="fa fa-eye"></i> {{vues}}</div>
+    </div>
+    <div class="nom">{{nom}}</div>
+  </div>
+  <div class="footer">
+    <div class="footer-content">
+      <div class="fonction">{{fonction}}</div>
+      <div class="annee_exp">{{experience}} année(s) d'expérience</div>
+    </div>
+    <div class="action">
+      <button mat-raised-button (click)="clickProfile()"
+        [class]="'mat-raised-button bg-primary color-light'">Profile</button>
+    </div>
+  </div>
+</div>
+
+<div class="conteneur ghost" *ngIf="ghost">
+  <div class="fond" [style.background-image]="'url('+_image+')'" ></div>
+  <div class="entete">
+    <div class="entete1">
+      <div class="like">
+        <span class="ghost title" [style.width]="'30px'"></span>
+      </div>
+      <div class="see">
+        <span class="ghost title" [style.width]="'30px'"></span>
+      </div>
+    </div>
+    <div class="nom">
+      <span class="ghost title" [style.width]="'50%'"></span>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-content">
+      <div class="fonction">
+        <span class="ghost title" [style.width]="'40%'"></span>
+      </div>
+      <div class="annee_exp">
+        <span class="ghost title" [style.width]="'70%'"></span>
+      </div>
+    </div>
+    <div class="action">
+      <span class="ghost title button" [style.width]="'60px'"></span>
+    </div>
+  </div>
+</div>
+

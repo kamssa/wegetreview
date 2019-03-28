@@ -1,0 +1,35 @@
+@import '../../../variables';
+
+.baniere{
+    padding: 25px 15px;
+}
+
+mat-form-field{
+    width: 100%;
+    input{
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: $md) {
+.baniere{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+.mat-card{
+    max-width: $md;    
+    .col-center{
+        display: flex;
+        align-items: center;
+    }
+}
+mat-checkbox{
+    position: relative;
+    bottom: -8px;
+}
+button{
+    width: 100%;
+}
+}

@@ -1,0 +1,57 @@
+@import '../../../variables';
+
+$hover_transition_time: .2s all ease;
+
+.partenaire-container{
+  display: block;
+  position: relative;
+  width: 100%;
+  border: 1px solid darken($color-secondary, 10%);
+  margin: 5px 0;
+  box-shadow: $shadow_1;
+  .partenaire-image{
+    position: relative;
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+    .partenaire-hover{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      bottom: 0;
+      cursor: pointer;
+      background: transparentize($color-dark, .6);
+      transition: $hover_transition_time;
+      i{
+        color: darken($color-light, 10%);
+        font-size: 2rem;
+        opacity: 0;
+        transition: $hover_transition_time;
+      }
+    }
+    &:hover{
+      .partenaire-hover{
+        top: 0;
+        i{
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $md) {
+  .partenaire-container{
+    margin: auto;
+    .partenaire-image{
+
+    }
+    .partenaire-hover{
+
+    }
+  }
+}

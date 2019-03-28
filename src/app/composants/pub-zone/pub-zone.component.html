@@ -1,0 +1,22 @@
+<div class="pub-container" *ngIf="!ghost">
+  <a *ngIf="lien !== undefined && lien !== null && lien !== ''" [href]="lien" target="_blank">
+    <div class="pub"
+         [style.height]="hauteur"
+         [style.background-image]="'url('+image+')'"
+    [style.background-size]="'cover'"
+    [style.background-position]="'center'"></div>
+  </a>
+    <div *ngIf="!(lien !== undefined && lien !== null && lien !== '')" class="pub"
+         [style.height]="hauteur"
+         [style.background-image]="'url('+image+')'"
+    [style.background-size]="'cover'"
+    [style.background-position]="'center'"></div>
+</div>
+
+<div class="pub-container ghost" *ngIf="ghost">
+    <div class="pub"
+         [style.height]="hauteur"
+         [style.background-image]="'url('+_image+')'"
+         [style.background-size]="'cover'"
+         [style.background-position]="'center'"></div>
+</div>

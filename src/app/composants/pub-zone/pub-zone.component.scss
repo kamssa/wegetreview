@@ -1,0 +1,17 @@
+@import "../../../variables";
+
+.pub-container{
+  display: block;
+  position: relative;
+  width: 100%;
+  a{
+    .pub{
+      position: relative;
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: $md){
+
+}

@@ -1,0 +1,93 @@
+@import '../../../variables';
+
+.conteneur{
+  display: block;
+  position: relative;
+  height: 300px;
+  box-shadow: $shadow_1;
+  margin: 4px 0px;
+  .image-container{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 140px;
+    .image-content{
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .entete{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    font-size: 0.8rem;
+    .gauche{
+      .experience{
+        display: inline-block;
+        padding: 0px 3px;
+      }
+    }
+    .droit{
+      .connexion-status{
+        display: flex;
+        width: 30px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+      }
+    }
+  }
+  .footer{
+    display: block;
+    position: relative;
+    padding: 10px;
+    .pre-info{
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      width: 100%;
+      font-size: 0.8rem;
+      .gauche{
+
+      }
+      .droit{
+
+      }
+    }
+    .body{
+      display: block;
+      position: relative;
+      width: 100%;
+      .nom{
+        font-weight: 500;
+        font-size: 1.1rem;
+      }
+      .fonction{
+        font-size: 0.9rem;
+      }
+      .langues{
+        font-size: 0.8rem;
+        .langue{
+          font-size: 0.8rem;
+          margin: 3px;
+        }
+      }
+    }
+    .actions{
+      display: flex;
+      justify-content: space-between;
+      button{}
+    }
+  }
+}
+
+@media screen and (min-width: $md){
+
+}

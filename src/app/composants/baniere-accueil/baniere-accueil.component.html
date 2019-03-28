@@ -1,0 +1,39 @@
+<div class="baniere" [style.background-image]="'url('+image+')'"
+  [style.background-size]="'cover'">
+  <mat-card>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-4">
+              <mat-form-field>
+                <input matInput placeholder="Competences">
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field>
+                <input matInput placeholder="Secteur">
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field>
+                <input matInput placeholder="Localité">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-center">
+          <div class="row">
+            <div class="col-md-6">
+                <mat-checkbox>A Proximité</mat-checkbox>
+            </div>
+            <div class="col-md-6">
+              <button mat-raised-button 
+              [class]="'mat-raised-button bg-primary color-light'"><mat-icon>search</mat-icon></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,112 @@
+@import '../../../variables';
+
+.carousel{
+  .train-zone{
+    .train{
+      .item-container{
+        .item{
+
+        }
+        .item-hover{
+
+        }
+      }
+    }
+  }
+
+  .actions{
+    .prev{
+
+    }
+    .next{
+
+    }
+  }
+}
+
+.preview-container{
+  .preview-zone{
+    .preview-train{
+      .preview-item{
+
+      }
+    }
+  }
+
+  .thumbnail-zone{
+    .thumbnail-train{
+      .item-container{
+        .item{}
+      }
+    }
+  }
+
+  .actions{
+    .close{
+
+    }
+    .prev{
+
+    }
+    .next{
+
+    }
+  }
+}
+
+@media screen and (min-width: $md){
+  .carousel{
+    .train-zone{
+      .train{
+        .item-container{
+          .item{
+
+          }
+          .item-hover{
+
+          }
+        }
+      }
+    }
+
+    .actions{
+      .prev{
+
+      }
+      .next{
+
+      }
+    }
+  }
+
+  .preview-container{
+    .preview-zone{
+      .preview-train{
+        .preview-item{
+
+        }
+      }
+    }
+
+    .thumbnail-zone{
+      .thumbnail-train{
+        .item-container{
+          .item{}
+        }
+      }
+    }
+
+    .actions{
+      .close{
+
+      }
+      .prev{
+
+      }
+      .next{
+
+      }
+    }
+  }
+
+}

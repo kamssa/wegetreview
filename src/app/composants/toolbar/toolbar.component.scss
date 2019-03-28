@@ -1,0 +1,102 @@
+@import '../../../variables';
+
+  .logo{
+    margin-right: 10px;
+  }
+
+a{
+  text-decoration: none;
+  &:active, &:hover, &:focus{
+    color: inherit;
+  }
+}
+
+  .separator{
+      float: 1 1 auto;
+  }
+
+  .toggle{
+    display: inline-block;
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+  }
+
+  .items{
+    display: none;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 53px;
+    padding: 10px 15px;
+    z-index: 5;
+  }
+
+  .showed{
+    display: block;
+  }
+
+  .item_link{
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 300;
+    padding: 2px 5px;
+    cursor: pointer;
+    &.active{
+      background: $color-light;
+      color: $color-primary;
+      &:hover{
+        color: inherit;
+      }
+    }
+  }
+
+
+
+  @media screen and (min-width: $md){
+
+    :host{
+      display: block;
+      margin-bottom: $toolbar_height;
+    }
+
+    .mat-toolbar{
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: $toolbar_height;
+      z-index: 4;
+    }
+
+    .separator{
+        display: none;
+    }
+
+    .toggle{
+        display: none;
+        align-self: flex-end;
+    }
+
+    .items{
+      display: flex;
+      justify-content: space-between;
+      position: static;
+      background-color: inherit;
+    }
+
+    .item_link{
+      display: inline-flex;
+      width: auto;
+      padding: 2px 5px;
+      margin: 0 4px;
+      border: 1px solid;
+      height: 45px;
+      align-items: center;
+      justify-content: center;
+      }
+      .mat-icon{
+        font-size: 17px;
+      }
+  }

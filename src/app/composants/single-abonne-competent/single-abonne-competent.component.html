@@ -1,0 +1,91 @@
+<div class="conteneur" *ngIf="!ghost">
+  <div class="image-container">
+    <div class="image-content" [style.background-image]="'url('+image+')'"
+      [style.background-size]="'cover'"
+      [style.background-position]="'center'"
+      ></div>
+  </div>
+
+  <div class="entete">
+    <div class="gauche">
+      <div class="experience bg-primary color-light">{{experience}} ans d'experience</div>
+    </div>
+    <div class="droit">
+      <div [class]="'connexion-status color-light'" 
+        [ngClass]="{'bg-success': connected, 'bg-danger': !connected}">
+        <i class="fa fa-comment"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="pre-info">
+      <div class="gauche">
+        <i class="fa fa-eye"></i> {{vues}}
+      </div>
+      <div class="droit">
+        <i class="fa fa-map-marker"></i> {{localite}}
+      </div>
+    </div>
+    <div class="body">
+      <h3 class="nom">{{nom}}</h3>
+      <div class="fonction">{{fonction}}</div>
+      <div class="langues">
+        <mat-chip-list>
+          <mat-chip class="langue" *ngFor="let langue of langues; index as i" 
+            [ngClass]="{'d-none': i > 2}">{{langue}}</mat-chip>
+            <mat-chip class="langue" *ngIf="langues?.length > 2">{{langues?.length}}+</mat-chip>
+        </mat-chip-list>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="mat-raised-button bg-secondary color-light" (click)="profile()" mat-raised-button>Profile</button>
+      <button class="mat-raised-button bg-primary color-light" (click)="contacter()" mat-raised-button>Contacter</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="conteneur ghost" *ngIf="ghost">
+  <div class="image-container">
+    <div class="image-content" [style.background-image]="'url('+_image+')'"
+      [style.background-size]="'cover'"
+      [style.background-position]="'center'"
+      ></div>
+  </div>
+
+  <div class="entete">
+    <div class="gauche">
+      <span class="ghost title" [style.width]="'80px'"></span>
+    </div>
+    <div class="droit">
+      <div [class]="'connexion-status color-light'">
+        <span class="ghost round"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="pre-info">
+      <div class="gauche">
+        <span class="ghost title" [style.width]="'30px'"></span>
+      </div>
+      <div class="droit">
+        <span class="ghost title" [style.width]="'30px'"></span>
+      </div>
+    </div>
+    <div class="body">
+      <h3 class="nom"><span class="ghost title" [style.width]="'50%'"></span></h3>
+      <div class="fonction"><span class="ghost title" [style.width]="'40%'"></span></div>
+      <div class="langues">
+        <span class="ghost chip" [style.width]="'20%'"></span>&nbsp;
+        <span class="ghost chip" [style.width]="'30%'"></span>&nbsp;
+        <span class="ghost chip" [style.width]="'25%'"></span>&nbsp;
+      </div>
+    </div>
+    <div class="actions">
+      <span class="ghost button" [style.width]="'35%'"></span>
+      <span class="ghost button" [style.width]="'35%'"></span>
+    </div>
+  </div>
+</div>

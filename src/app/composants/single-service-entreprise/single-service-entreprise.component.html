@@ -1,0 +1,35 @@
+<div class="service-container" *ngIf="!ghost">
+  <div class="service-header">
+    <div class="titre">{{titre}}</div>
+    <div class="description">{{description | limitText:100}}</div>
+  </div>
+  <div class="image-container">
+    <div class="image-content" [style.background-image]="'url('+image+')'"
+         [style.background-size]="'cover'"
+         [style.background-position]="'center'"></div>
+  </div>
+  <div class="actions">
+    <button mat-button [class]="'mat-button color-primary'" (click)="voirPlus()" >Voir plus</button>
+  </div>
+</div>
+
+<div class="service-container ghost" *ngIf="ghost">
+  <div class="service-header">
+    <div class="titre">
+      <span class="ghost title" [style.width]="'50%'"></span>
+    </div>
+    <div class="description">
+      <span class="ghost title" [style.width]="'90%'"></span>
+      <span class="ghost title" [style.width]="'100%'"></span>
+      <span class="ghost title" [style.width]="'60%'"></span>
+    </div>
+  </div>
+  <div class="image-container">
+    <div class="image-content" [style.background-image]="'url('+_image+')'"
+         [style.background-size]="'cover'"
+         [style.background-position]="'center'"></div>
+  </div>
+  <div class="actions">
+    <span class="ghost button" [style.width]="'30%'"></span>
+  </div>
+</div>

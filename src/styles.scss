@@ -1,0 +1,110 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'variables';
+@import 'mixins';
+@import '../node_modules/font-awesome/scss/font-awesome';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body { height: 100%; }
+body {
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+    button{
+        border-radius: 0 !important;
+    }
+
+    .container{
+      padding: 20px 0px 20px 0px;
+    }
+    .titre-principal {
+        margin: 5px 0px 15px 0px;
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: $color-secondary;
+    }
+
+  @include ghost_animation();
+
+    .ghost{
+      border-radius: 3px;
+      position: relative;
+      overflow: hidden;
+      &::after{
+        content: '';
+        position: absolute;
+        background: transparentize(#ffffff, 0.8);
+        width: 100%;
+        height: 100%;
+        border-radius: 3px;
+        animation: ghost_animation .9s ease infinite;
+      }
+      &.title{
+        display: inline-block !important;
+        width: 100%;
+        height: 12px;
+        margin: 0px 0px;
+        background: darken($color-light, 30%);
+      }
+      &.button{
+        display: inline-block !important;
+        width: 100%;
+        display: inline-block;
+        height: 30px;
+        margin: 1px 0px;
+        background: darken($color-light, 30%);
+      }
+      &.round{
+        display: inline-block !important;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        background: darken($color-light, 30%);
+      }
+      &.chip{
+        display: inline-block !important;
+        width: 30px;
+        height: 30px;
+        border-radius: 20px;
+        background: darken($color-light, 30%);
+      }
+    }
+
+  .outline{
+    outline-style: none;
+  }
+
+  button:focus{
+    outline:unset;
+  }
+ }
+
+
+
+@include color_pallete('primary', $color_primary !important);
+@include color_pallete('secondary', $color_secondary !important);
+@include color_pallete('tertiary', $color_tertiary !important);
+@include color_pallete('success', $color_success !important);
+@include color_pallete('danger', $color_danger !important);
+@include color_pallete('warning', $color_warning !important);
+@include color_pallete('info', $color_info !important);
+@include color_pallete('light', $color_light !important);
+@include color_pallete('dark', $color_dark !important);
+
+@include color_pallete_active('primary-active', darken($color_primary, 10%) !important);
+@include color_pallete_active('secondary-active', darken($color_secondary, 10%) !important);
+@include color_pallete_active('tertiary-active', darken($color_tertiary, 10%) !important);
+@include color_pallete_active('success-active', darken($color_success, 10%) !important);
+@include color_pallete_active('danger-active', darken($color_danger, 10%) !important);
+@include color_pallete_active('warning-active', darken($color_warning, 10%) !important);
+@include color_pallete_active('info-active', darken($color_info, 10%) !important);
+@include color_pallete_active('light-active', darken($color_light, 10%) !important);
+@include color_pallete_active('dark-active', darken($color_dark, 10%) !important);
+
+@include color_pallete_hover('primary-hover', darken($color_primary, 5%) !important);
+@include color_pallete_hover('secondary-hover', darken($color_secondary, 5%) !important);
+@include color_pallete_hover('tertiary-hover', darken($color_tertiary, 5%) !important);
+@include color_pallete_hover('success-hover', darken($color_success, 5%) !important);
+@include color_pallete_hover('danger-hover', darken($color_danger, 5%) !important);
+@include color_pallete_hover('warning-hover', darken($color_warning, 5%) !important);
+@include color_pallete_hover('info-hover', darken($color_info, 5%) !important);
+@include color_pallete_hover('light-hover', darken($color_light, 5%) !important);
+@include color_pallete_hover('dark-hover', darken($color_dark, 5%) !important);

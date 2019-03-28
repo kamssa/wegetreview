@@ -1,0 +1,64 @@
+<div class="container px-0">
+  <div class="row collapse show no-gutters d-flex h-100 position-relative">
+    <div class="col-3 p-0 h-100 w-sidebar navbar-collapse collapse d-none d-md-flex sidebar">
+      <div class="navbar-dark bg-dark text-white position-fixed h-100 align-self-start w-sidebar">
+        <h6 class="px-3 pt-3">Fixed Menu <a data-toggle="collapse" class="px-1 d-inline d-md-none text-white" href="#" data-target=".collapse"><i class="fa fa-bars"></i></a></h6>
+        <ul class="nav flex-column flex-nowrap text-truncate">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col p-3">
+      <div class="row">
+        <div *ngFor="let tarif of tarifs" class="col-md-6 col-sm-6 col-lg-3 col-12" style="margin-bottom: 20px;">
+          <mat-card class="pricing-box">
+            <div class="pricing-intro">
+              <div class="price-title">
+                <span [ngClass]="'tarif-titre'" [innerHtml]="(tarif.titre |uppercase)"></span>
+                &nbsp;
+                <span  class="tarif-titre">
+                  <i [ngClass]="{'fa':true,
+                    'fa-star':(tarif.titre |uppercase)==='TOP',
+                    'fa-gift':(tarif.titre |uppercase)==='GRATUIT',
+                    'fa-smile-o':(tarif.titre |uppercase)==='YES',
+                    'fa-thumbs-up':(tarif.titre |uppercase)==='OK'}" style="font-size:24px;color:red">
+                  </i>                        
+                </span>
+              </div>
+            </div>
+            <div class="content equal-height" style="height: 18px;"></div>
+            <mat-card-content>
+              <div class="price">
+                <span>{{tarif.prix}}</span> <sup>Fcfa</sup> <br>
+                <small>{{tarif.dureeTarif}}</small>&nbsp;
+                <small>{{tarif.typeDuree}}</small>
+              </div>
+              <p class="abn-special" *ngIf="tarif.prixSpecial===null || tarif.prixSpecial==0">
+                <br><br>
+              </p>
+              <code>
+                <p class="abn-special" *ngIf="tarif.prixSpecial!==null && tarif.prixSpecial!=0">
+                  <small>Devenir un abonné spécial </small><br>
+                  <small>à partir de </small>
+                  <span>{{tarif.prixSpecial}}<sup>Fcfa</sup>/jour</span>
+                </p>
+              </code>
+            </mat-card-content>
+            <mat-card-actions>
+              <button  mat-raised-button color="primary" (click)="onPayer(tarif.idBlock, tarif.id)" i18n>Ajouter au Panier</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        

@@ -1,0 +1,43 @@
+<mat-toolbar #toolbar class="mat-elevation-z4"
+[ngClass]="'bg-'+primary + ' color-'+ secondary">
+  <span class="logo"><ng-content select=".logo"></ng-content></span>
+  <div class="toggle" (click)="toggle()"><mat-icon>menu</mat-icon></div>
+  <div class="items"
+   #items_ [ngClass]="{'showed': showed}"
+   [class]="'bg-'+primary+' color-'+secondary">
+    <div class="left">
+      <span [routerLink]="item?.link" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: item?.strict_link}"
+      *ngFor="let item of items"
+      class="item_link"
+      [class]="'bg-'+primary+'-hover col-'+secondary+'-hover'"
+      [ngClass]="{'d-none': item?.position !== 'left' || item?.link === null || item?.action !== null}">
+        <mat-icon *ngIf="item?.icon">{{item?.icon}}</mat-icon> {{item?.title}}
+    </span>
+      <span (click)="item?.action()"
+      *ngFor="let item of items"
+      class="item_link"
+      [class]="'bg-'+primary+'-hover col-'+secondary+'-hover'"
+      [ngClass]="{'d-none': item?.position !== 'left' || item?.action === null || item?.link !== null}">
+        <mat-icon *ngIf="item?.icon">{{item?.icon}}</mat-icon> {{item?.title}}
+    </span>
+    </div>
+    <div class="right">
+      <span [routerLink]="item?.link" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: item?.strict_link}"
+      *ngFor="let item of items"
+      class="item_link"
+      [class]="'bg-'+primary+'-hover col-'+secondary+'-hover'"
+      [ngClass]="{'d-none': item?.position !== 'right' || item?.link === null || item?.action !== null}">
+        <mat-icon *ngIf="item?.icon">{{item?.icon}}</mat-icon> {{item?.title}}
+    </span>
+      <span (click)="item?.action()"
+      *ngFor="let item of items"
+      class="item_link"
+      [class]="'bg-'+primary+'-hover col-'+secondary+'-hover'"
+      [ngClass]="{'d-none': item?.position !== 'right' || item?.action === null || item?.link !== null}">
+        <mat-icon *ngIf="item?.icon">{{item?.icon}}</mat-icon> {{item?.title}}
+    </span>
+    </div>
+  </div>
+</mat-toolbar>
