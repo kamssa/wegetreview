@@ -109,6 +109,7 @@ getAbonnementById(id: number){
       if(res) {
         if (res.status == 0 && res.body) {
           if (res.body.length > 0) {
+            console.log(res);
             observer.next(res.body);
           } else {
             observer.error([]);

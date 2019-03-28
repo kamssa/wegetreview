@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {AppConfig} from '../../parametres/app-config';
 
+type SingleAbonneType = {id: number, type: string};
+
+
 @Component({
   selector: 'cpn-single-abonne-special',
   templateUrl: './single-abonne-special.component.html',
@@ -15,8 +18,9 @@ export class SingleAbonneSpecialComponent implements OnInit {
   @Input('fonction') fonction: string = "";
   @Input('experience') experience: number = 0;
   @Input('ghost') ghost: boolean = false;
+  @Input('type') _type: string = '';
   @Input('_id') _id: number = 0;
-  @Output() viewProfile = new EventEmitter<number>(null);
+  @Output() viewProfile = new EventEmitter<SingleAbonneType>(null);
 
   constructor() { }
 
@@ -24,7 +28,7 @@ export class SingleAbonneSpecialComponent implements OnInit {
   }
 
   clickProfile(){
-    this.viewProfile.emit(this._id);
+    this.viewProfile.emit({id: this._id, type: this._type});
   }
 
 }

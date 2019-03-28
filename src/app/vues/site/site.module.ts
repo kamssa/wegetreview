@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SiteRoutingModule } from './site-routing.module';
 import { SiteComponent } from './site.component';
-import { AccueilModule } from './accueil/accueil.module';
 import { ComposantsModule } from '../../composants/composants.module';
+import {AuthGuardTogetService} from '../../guards/auth-guard-toget.service';
 
 
 @NgModule({
@@ -12,6 +12,7 @@ import { ComposantsModule } from '../../composants/composants.module';
     SiteRoutingModule,
     ComposantsModule
   ],
-  declarations: [SiteComponent]
+  declarations: [SiteComponent],
+  providers: [AuthGuardTogetService]
 })
 export class SiteModule { }

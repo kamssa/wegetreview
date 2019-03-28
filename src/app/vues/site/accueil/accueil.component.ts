@@ -60,7 +60,6 @@ export class AccueilComponent implements OnInit {
         membre = res;
         this.membres = membre;
         this.__membres = this.outils.update_number_tab(4, this.membres.length);
-
         console.log(this.membres);
         console.log(this.__membres);
       },
@@ -71,8 +70,8 @@ export class AccueilComponent implements OnInit {
 
   }
 
-  handleProfile(id: number){
-
+  handleProfile(data: any){
+    this.router.navigate(['site',data.type,'profile',data.id]);
   }
   handleOnSabonner(id: number){
     this.router.navigate(['site/tarif',id]);

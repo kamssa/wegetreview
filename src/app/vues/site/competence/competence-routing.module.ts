@@ -1,6 +1,7 @@
 import { CompetenceComponent } from './competence.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { SiteComponent } from '../site.component';
 
 const routes: Routes = [
   {path: ':id', component: CompetenceComponent},

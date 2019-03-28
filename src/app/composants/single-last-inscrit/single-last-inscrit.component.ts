@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {AppConfig} from '../../parametres/app-config';
 
+type SingleLastInscritType = {id: number, type: string};
+
 @Component({
   selector: 'cpn-single-last-inscrit',
   templateUrl: './single-last-inscrit.component.html',
@@ -11,9 +13,10 @@ export class SingleLastInscritComponent implements OnInit {
   @Input('image') image: string = this._image;
   @Input('nom') nom: string = 'Indefini';
   @Input('fonction') fonction: string = 'Indefini';
+  @Input('type') _type: string = '';
   @Input('_id') _id: number = 0;
   @Input('ghost') ghost: boolean = false;
-  @Output() onContacter = new EventEmitter<number>(null);
+  @Output() onContacter = new EventEmitter<SingleLastInscritType>(null);
 
   constructor() { }
 
@@ -21,7 +24,7 @@ export class SingleLastInscritComponent implements OnInit {
   }
 
   contacter(){
-    this.onContacter.emit(this._id);
+    this.onContacter.emit({id: this._id, type: this._type});
   }
 
 }
