@@ -30,8 +30,16 @@ export class AccueilComponent implements OnInit {
     {id:3, nom:'Innocent Kassi',loveIt:105, nbVue:85,anneeExp:8,specialite:'Designer'},
     {id:4, nom:'Joël Djoué',loveIt:175, nbVue:145,anneeExp:2,specialite:'Developpeur'}
   ]
-  abonneSpecial: AbonneSpecial = {id:5, nom:'Traoré Abdoulaye',loveIt:25, nbVue:245,anneeExp:8,specialite:'Developpeur'};
+  abonneSpecial: AbonneSpecial = {
+    id:5, 
+    nom:'Traoré Abdoulaye',
+    loveIt:25, 
+    nbVue:245,
+    anneeExp:8,
+    specialite:'Developpeur'
+  };
   espaces: EspaceModel[] = [];
+  __espaces: number[] = this.outils.init_number_tab(6);
 
   abonnes: AbonnementModel[] = [];
   __abonnes: number[] = this.outils.init_number_tab(4);
@@ -52,19 +60,13 @@ export class AccueilComponent implements OnInit {
     this.fetchAllEspace();
     this.fetchAbonneSpeciaux();
     this.fetchAllPartenaireSite();
-    this.fetchAllAbonnesEspace();
+    
     let membre:any
     this.abonneMetier.getAbonneByFiltre(4).subscribe(
       res=>{
-        console.log(this.__membres);
         membre = res;
-        this.membres = membre;
+        this.membres = membre.body;
         this.__membres = this.outils.update_number_tab(4, this.membres.length);
-        console.log(this.membres);
-        console.log(this.__membres);
-      },
-      err=>{
-        console.log(err)
       }
     );
 
@@ -77,7 +79,8 @@ export class AccueilComponent implements OnInit {
     this.router.navigate(['site/tarif',id]);
   }
   handleVoirAbonnes(data:any){
-    this.router.navigate(['site/',data.type, data.id])
+    this.router.navigate(['site/',data.type,'esp', data.id]);
+
   }
 
   fetchAllEspace (){
@@ -85,7 +88,7 @@ export class AccueilComponent implements OnInit {
     this.espaceMetier.getAllEspace().subscribe(res=>{
       espace = res;
       this.espaces = espace.body;
-      console.log(this.espaces);
+      this.__espaces = this.outils.update_number_tab(6, this.espaces.length);
     });
   }
 
@@ -94,14 +97,10 @@ export class AccueilComponent implements OnInit {
     this.abonneMetier.getAbonnementSpecial().subscribe(
       res =>{
         lignes = res;
-        this.abonnes = lignes;
+        this.abonnes = lignes.body;
         if(this.abonnes.length > 0){
           this.__abonnes = this.outils.update_number_tab(0, this.abonnes.length);
         }
-        console.log('abonnes',this.abonnes);
-      },
-      err => {
-        console.log(err);
       }
     );
   }
@@ -111,10 +110,6 @@ export class AccueilComponent implements OnInit {
     this.partenaireMetier.getPartenaire().subscribe(
       res=>{
         partenaire = res;
-        console.log('Partenaire :',partenaire)
-      },
-      err =>{
-        console.log(err);
       }
     );
   }
@@ -123,16 +118,4 @@ export class AccueilComponent implements OnInit {
     this.router.navigateByUrl(url);
   }
 
-  fetchAllAbonnesEspace(){
-    let abonne: any
-    this.abonneMetier.getAbonnementByIdEspace(1).subscribe(
-      res=>{
-        abonne = res;
-        console.log(abonne);
-      },
-      err =>{
-        console.log(err);
-      }
-    );
-  }
 }

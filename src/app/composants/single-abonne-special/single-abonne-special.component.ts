@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import {AppConfig} from '../../parametres/app-config';
 
 type SingleAbonneType = {id: number, type: string};
@@ -9,7 +9,7 @@ type SingleAbonneType = {id: number, type: string};
   templateUrl: './single-abonne-special.component.html',
   styleUrls: ['./single-abonne-special.component.scss']
 })
-export class SingleAbonneSpecialComponent implements OnInit {
+export class SingleAbonneSpecialComponent implements OnInit, OnChanges {
   _image: string = AppConfig.assets.placeholder_avatar;
   @Input('image') image: string = this._image;
   @Input('nom') nom: string = "";
@@ -17,6 +17,7 @@ export class SingleAbonneSpecialComponent implements OnInit {
   @Input('vues') vues: number = 0;
   @Input('fonction') fonction: string = "";
   @Input('experience') experience: number = 0;
+  @Input('hide_profile') hide_profile: boolean = false;
   @Input('ghost') ghost: boolean = false;
   @Input('type') _type: string = '';
   @Input('_id') _id: number = 0;
@@ -25,6 +26,17 @@ export class SingleAbonneSpecialComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.check_image();
+  }
+
+  ngOnChanges(changes){
+    this.check_image();
+  }
+
+  check_image(){
+    if(this.image === null || this.image === '' || this.image === 'null'){
+      this.image = this._image;
+    }
   }
 
   clickProfile(){

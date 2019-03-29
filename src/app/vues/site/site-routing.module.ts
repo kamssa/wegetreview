@@ -8,6 +8,7 @@ const routes: Routes = [
     {path: '', loadChildren: './accueil/accueil.module#AccueilModule'},
     {path: 'annonce', loadChildren: './annonce/annonce.module#AnnonceModule'},
     {path: 'competence', loadChildren: './competence/competence.module#CompetenceModule'},
+    // {path: 'competene/profile', loadChildren: './competence/profile-competence/profile-competence.module#ProfileCompetenceModule'},
     {path: 'ecole', loadChildren: './ecole/ecole.module#EcoleModule'},
     {path: 'immobilier', loadChildren: './immobilier/immobilier.module#ImmobilierModule'},
     {path: 'tarif', loadChildren: './tarif/tarif.module#TarifModule'}

@@ -12,8 +12,10 @@ import { tap, catchError } from 'rxjs/operators';
 export class AbonnementCrudService {
 
   abonnement_path = AppConfig.baseURL + "abonnement/";
-  photoAbonnes_path = AppConfig.baseURL + "PhotoAbonnes/";
+  photoAbonnes_path = AppConfig.baseURL + "imageAbonnement/";
   abonnementSpécial_path = AppConfig.baseURL + "getAbonnementSpecial/";
+  abonnementByEspace_path = AppConfig.baseURL + "getAbonnementByIdEspace/";
+  updateVue_path = AppConfig.baseURL + "updateVue/";
  
 
   all_elements$ = new BehaviorSubject<ResultatsModel<AbonnementModel>>(null);
@@ -71,13 +73,13 @@ export class AbonnementCrudService {
       catchError(this.handleError<ResultatsModel<AbonnementModel>>('delete'))
     );
   }
-  getAbonnementByMoi(): Observable<ResultatsModel<AbonnementModel>>{
+  getAbonnementByMois(): Observable<ResultatsModel<AbonnementModel>>{
     return this.http.get<ResultatsModel<AbonnementModel>>(this.abonnement_path)
     .pipe(
       tap(res => {
         this.all_elements$.next(res);
       }),
-      catchError(this.handleError<ResultatsModel<AbonnementModel>>('getAbonnementByMoi'))
+      catchError(this.handleError<ResultatsModel<AbonnementModel>>('getAbonnementByMois'))
     );
   }
   getAbonnementBani(): Observable<ResultatsModel<AbonnementModel>>{
@@ -126,7 +128,7 @@ export class AbonnementCrudService {
     );
   }
   getAbonnementByIdEspace(id: number): Observable<ResultatsModel<AbonnementModel>>{
-    return this.http.get<ResultatsModel<AbonnementModel>>(this.abonnement_path + id)
+    return this.http.get<ResultatsModel<AbonnementModel>>(this.abonnementByEspace_path + id)
     .pipe(
       tap(res => {
         this.all_elements$.next(res);
@@ -144,7 +146,7 @@ export class AbonnementCrudService {
     );
   }
   updateVue(data: AbonnementModel): Observable<ResultatsModel<AbonnementModel>>{
-    return this.http.put<ResultatsModel<AbonnementModel>>(this.abonnement_path, data)
+    return this.http.put<ResultatsModel<AbonnementModel>>(this.updateVue_path, data)
     .pipe(
       tap(res => {
         this.all_elements$.next(res);

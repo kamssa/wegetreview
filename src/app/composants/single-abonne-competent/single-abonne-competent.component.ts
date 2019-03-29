@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import {AppConfig} from '../../parametres/app-config';
 
 @Component({
@@ -6,7 +6,7 @@ import {AppConfig} from '../../parametres/app-config';
   templateUrl: './single-abonne-competent.component.html',
   styleUrls: ['./single-abonne-competent.component.scss']
 })
-export class SingleAbonneCompetentComponent implements OnInit {
+export class SingleAbonneCompetentComponent implements OnInit, OnChanges {
 	_image: string = AppConfig.assets.placeholder_avatar;
 	@Input('image') image: string = this._image;
 	@Input('experience') experience: number = 0;
@@ -24,7 +24,18 @@ export class SingleAbonneCompetentComponent implements OnInit {
   	constructor() { }
 
 	ngOnInit() {
-	}
+    this.check_image();
+  }
+
+  ngOnChanges(changes){
+    this.check_image();
+  }
+
+  check_image(){
+    if(this.image === null || this.image === '' || this.image === 'null'){
+      this.image = this._image;
+    }
+  }
 
 	profile(){
 		this.onProfile.emit(this._id);

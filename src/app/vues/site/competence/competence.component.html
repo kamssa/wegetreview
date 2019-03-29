@@ -22,14 +22,14 @@
           <div class="row">
             <div *ngFor="let abonne of abonnes; let i=index" class="col-md-6 col-sm-6 col-12 col-lg-4">
               <cpn-single-abonne-competent
-                [image]="'/assets/img/avatar'+i+'.png'"
-                [experience]="abonne?.anneeExp"
+                [image]="abonne?.pathPhoto"
+                [experience]="abonne?.cvPersonne?.anneExperience"
                 [connected]="abonne?.status"
-                [vues]="abonne?.nbVue"
-                [localite]="abonne?.pays"
-                [nom]="abonne?.nom"
-                [fonction]="abonne?.specialite"
-                [langues]="abonne?.langues"
+                [vues]="abonne?.nombreVue"
+                [localite]="abonne?.membre?.adresse?.pays"
+                [nom]="abonne?.membre?.nomComplet"
+                [fonction]="abonne?.cvPersonne?.specialite"
+                [langues]="abonne?.membre?.langues"
                 [_id]="abonne?.id"></cpn-single-abonne-competent>
             </div>
             <div *ngFor="let abonne of __abonnes; let i=index" class="col-md-6 col-sm-6 col-12 col-lg-4">

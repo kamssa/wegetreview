@@ -51,6 +51,13 @@
         .action{
             display: flex;
             justify-content: flex-end;
+            button {
+              color: $color-light;
+              background: $color-primary;
+              &[disabled]{
+                background: lighten($color-dark, 30%);
+              }
+            }
         }
     }
 }

@@ -15,8 +15,7 @@ import * as jwt_decode from "jwt-decode";
 
 @Injectable({providedIn: 'root'})
 export class AuthGuardTogetService implements CanActivate, CanActivateChild, CanLoad {
-  private lat: any;
-  private lon: any;
+
   constructor(private route: ActivatedRoute, public router: Router, public http: HttpClient) {
   }
 
@@ -35,7 +34,7 @@ export class AuthGuardTogetService implements CanActivate, CanActivateChild, Can
 
   getSession(){
     const code = new Date().getTime();
-    const sessionId = window.btoa(unescape(encodeURIComponent( code+"UserID" )));
+    const sessionId = window.btoa(unescape(encodeURIComponent( code+"UserID"+code )));
     sessionStorage.setItem('Session_users', sessionId);
   }
 

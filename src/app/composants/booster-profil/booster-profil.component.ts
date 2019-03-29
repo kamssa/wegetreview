@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import {AppConfig} from '../../parametres/app-config';
 
 @Component({
@@ -6,7 +6,7 @@ import {AppConfig} from '../../parametres/app-config';
   templateUrl: './booster-profil.component.html',
   styleUrls: ['./booster-profil.component.scss']
 })
-export class BoosterProfilComponent implements OnInit {
+export class BoosterProfilComponent implements OnInit, OnChanges {
   _image: string = AppConfig.assets.placeholder_avatar;
   @Input('image') image: string = this._image;
   @Input('lien') lien: string = "";
@@ -17,9 +17,21 @@ export class BoosterProfilComponent implements OnInit {
   @Input('twitter') twitter: string = "";
   @Input('linkedin') linkedin: string = "";
   @Input('ghost') ghost: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
+    this.check_image();
+  }
+
+  ngOnChanges(changes){
+    this.check_image();
+  }
+
+  check_image(){
+    if(this.image === null || this.image === '' || this.image === 'null'){
+      this.image = this._image;
+    }
   }
 
 }

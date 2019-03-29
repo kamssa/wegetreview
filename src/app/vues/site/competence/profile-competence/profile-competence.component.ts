@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-// import { AbonnementMetierService } from 'src/app/metiers/abonnement-metier.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-// import { CvPersonneMetierService } from 'src/app/metiers/cv-personne-metier.service';
+import { AbonnementModel } from 'src/app/models/abonnement/abonnement-model';
+import { AbonnementMetierService } from 'src/app/metiers/abonnement-metier.service';
+import { Router, ParamMap, ActivatedRoute, RouterState,
+ RouterStateSnapshot, ActivatedRouteSnapshot} from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-// import { AbonnementModel } from 'src/app/models/abonnement/abonnement-model';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-profile-competence',
@@ -12,45 +14,44 @@ import { switchMap } from 'rxjs/operators';
 })
 export class ProfileCompetenceComponent implements OnInit {
 
-  // abonne: AbonnementModel;
+  abonne: AbonnementModel;
   
   constructor(
-    // private abonneMetier: AbonnementMetierService,
-    // private route: ActivatedRoute,
-    // private cvMetier: CvPersonneMetierService
-    ) { }
+    private abonneMetier: AbonnementMetierService,
+    route: ActivatedRoute,
+    router: Router
+    ) {
+      let ab: any;
+      const id: string = route.snapshot.params.ids;
+      console.log(id);
+      this.abonneMetier.getAbonnementById(+id).subscribe(
+        res => {
+          ab = res;
+          console.log('Resultat complet de la bd',ab);
+          this.abonne = ab.body;
+          console.log(this.abonne);
+        }
+      );
+    }
 
     
-  ngOnInit() {}
-  //   let ab: any;
-  //   this.route.paramMap.pipe(
-  //     switchMap((params: ParamMap) =>
-  //     this.abonneMetier.getAbonnementById(+params.get('id')))
-  //   ).subscribe(
-  //     res => {
-  //       ab = res;
-  //       this.abonne = ab;
-  //       console.log(this.abonne);
-  //     },
-  //     err =>{
-  //       console.log(err);
-  //     }
-  //   );
-  // }
+  ngOnInit() {
+    
+  }
 
-  // onGetNumAbonne(){
+  onGetNumAbonne(){
 
-  // }
+  }
 
-  // onContactAbonne(){
+  onContactAbonne(){
 
-  // }
+  }
 
-  // activatchat(){
+  activatchat(){
 
-  // }
+  }
 
-  // handleClick(){
+  handleClick(){
 
-  // }
+  }
 }

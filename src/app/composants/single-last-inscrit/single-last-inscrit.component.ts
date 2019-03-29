@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angular/core';
 import {AppConfig} from '../../parametres/app-config';
 
 type SingleLastInscritType = {id: number, type: string};
@@ -8,7 +8,7 @@ type SingleLastInscritType = {id: number, type: string};
   templateUrl: './single-last-inscrit.component.html',
   styleUrls: ['./single-last-inscrit.component.scss']
 })
-export class SingleLastInscritComponent implements OnInit {
+export class SingleLastInscritComponent implements OnInit, OnChanges {
   _image: string = AppConfig.assets.placeholder_avatar;
   @Input('image') image: string = this._image;
   @Input('nom') nom: string = 'Indefini';
@@ -21,8 +21,18 @@ export class SingleLastInscritComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.check_image();
   }
 
+  ngOnChanges(changes){
+    this.check_image();
+  }
+
+  check_image(){
+    if(this.image === null || this.image === '' || this.image === 'null'){
+      this.image = this._image;
+    }
+  }
   contacter(){
     this.onContacter.emit({id: this._id, type: this._type});
   }
